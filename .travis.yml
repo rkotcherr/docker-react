@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t wheresmycookie/frontend:test -f Dockerfile.dev .
+
+script:
+  - docker run wheresmycookie/frontend:test npm run test -- --coverage
