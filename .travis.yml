@@ -1,9 +1,15 @@
+language: node_js
+node_js:
+  - 8
 sudo: required
 services:
   - docker
+cache:
+  directories:
+    - node_modules
 
 before_install:
   - docker build -t wheresmycookie/frontend:test -f Dockerfile.dev .
 
 script:
-  - CI=true docker run wheresmycookie/frontend:test npm run test
+  - CI=true docker run wheresmycookie/frontend:test npm test
