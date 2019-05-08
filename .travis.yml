@@ -6,4 +6,4 @@ before_install:
   - docker build -t wheresmycookie/frontend:test -f Dockerfile.dev .
 
 script:
-  - docker run wheresmycookie/frontend:test npm run test -- --coverage
+  - CI=true docker run wheresmycookie/frontend:test npm run test
